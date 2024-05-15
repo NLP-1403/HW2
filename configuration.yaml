@@ -1,0 +1,23 @@
+connectors:
+  matrix:
+    # Required
+    mxid: "@amirmohammadfakhimi2:matrix.org"
+    password: "zojgor-Wybjyt-myjxy9"
+    rooms:
+      'main': '#NLP-test:matrix.org'
+
+    # Optional
+    homeserver: "https://matrix.org"
+    nick: "Bot"
+    device_id: "opsdroid"
+    enable_encryption: True
+
+skills:
+  test:
+    path: 'skills/test.py'
+  accept_invite:
+    path: 'skills/accept_invite.py'
+  join_room:
+    path: 'skills/join_room.py'
+  help:
+    path: 'skills/help.py'
