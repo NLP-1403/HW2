@@ -1,13 +1,13 @@
 connectors:
   matrix:
     # Required
-    mxid: "@amirmohammadfakhimi2:matrix.org"
-    password: "zojgor-Wybjyt-myjxy9"
+    mxid: '@bot_clarex:bot.parsi.ai'
+    password: '12345'
     rooms:
-      'main': '#NLP-test:matrix.org'
+      'main': '#NLP-test:bot.parsi.ai'
 
     # Optional
-    homeserver: "https://matrix.org"
+    homeserver: "https://bot.parsi.ai"
     nick: "Bot"
     device_id: "opsdroid"
     enable_encryption: True
@@ -21,3 +21,5 @@ skills:
     path: 'skills/join_room.py'
   help:
     path: 'skills/help.py'
+  regex_generator1:
+    path: 'skills/regex_generator.py'
