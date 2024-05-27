@@ -1,11 +1,13 @@
 from .const import DEBUG, ESCAPE, INESCAPE
 
+
 def debug_print(title: str, obj) -> bool:
     if DEBUG:
         print(f"[{WARNING}DEBUG{NOCOLOR}]", title, ":")
         print(obj)
         print()
     return DEBUG
+
 
 def common_string(strings):
     """
@@ -32,6 +34,7 @@ def common_string(strings):
     else:
         return strings
 
+
 def cs_compress(cs_set):
     """
     @cs_set 是所有字串共有的 substring 的集合。
@@ -52,6 +55,7 @@ def cs_compress(cs_set):
                 continue
     return set(prob)
 
+
 def _longest_common_subseqence(s1, s2):
     if s1 == '' or s2 == '':
         return ''
@@ -68,19 +72,21 @@ def _longest_common_subseqence(s1, s2):
     cs = matrix[-1][-1]
     return cs
 
+
 def longest_common_subseqence(type_list):
     subsequence = type_list[0]
     for t in type_list[1:]:
         subsequence = _longest_common_subseqence(subsequence, t)
     return subsequence
 
-def escape_format(strs, inside=False) :
+
+def escape_format(strs, inside=False):
     tmp = ''
-    for c in strs :
+    for c in strs:
         if inside and c in INESCAPE:
             tmp += '\\' + c
-        elif not inside and c in ESCAPE :
+        elif not inside and c in ESCAPE:
             tmp += '\\' + c
-        else :
+        else:
             tmp += c
     return tmp

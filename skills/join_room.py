@@ -1,9 +1,9 @@
-from opsdroid.skill import Skill
-from opsdroid.matchers import match_event
 from opsdroid.events import JoinRoom
+from opsdroid.matchers import match_event
+from opsdroid.skill import Skill
 
 
-class NewJoinSkill(Skill):
+class JoinRoom(Skill):
     @match_event(JoinRoom)
-    async def new_join(self, event):
-        await event.respond(f"Welcome {event.user} to the room!")
+    async def join_room(self, event):
+        event.respond("سلام 👋🏻\n")

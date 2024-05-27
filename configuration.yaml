@@ -8,7 +8,7 @@ connectors:
 
     # Optional
     homeserver: "https://bot.parsi.ai"
-    nick: "Bot"
+    nick: "Great Bot"
     device_id: "opsdroid"
     enable_encryption: True
 
@@ -17,8 +17,6 @@ skills:
     path: 'skills/test.py'
   accept_invite:
     path: 'skills/accept_invite.py'
-  join_room:
-    path: 'skills/join_room.py'
   help:
     path: 'skills/help.py'
   regex_generator1:

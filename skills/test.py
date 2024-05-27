@@ -2,7 +2,7 @@ from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
 
 
-class HelloSkill(Skill):
+class Test(Skill):
     @match_regex(r'hi')
-    async def hello(self, message):
+    async def test(self, message):
         await message.respond('Hey')
