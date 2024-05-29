@@ -20,6 +20,8 @@ connectors:
 skills:
   accept_invite:
     path: 'skills/accept_invite.py'
+  join_room:
+    path: 'skills/join_room.py'
   help:
     path: 'skills/help.py'
   regex_generator:
