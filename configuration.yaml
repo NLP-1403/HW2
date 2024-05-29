@@ -4,7 +4,7 @@ connectors:
     mxid: '@bot_clarex:bot.parsi.ai'
     password: '12345'
     rooms:
-      'main': '#NLP-test:bot.parsi.ai'
+      'main': '#NLP-test1:bot.parsi.ai'
 
     # Optional
     homeserver: 'https://bot.parsi.ai'
@@ -12,10 +12,10 @@ connectors:
     device_id: 'opsdroid'
     enable_encryption: True
 
-#databases:
-#  sqlite:
-#    path: '/new_regex/message_patterns.db'
-#    table: 'message_patterns'
+databases:
+  sqlite:
+    path: './new_regex/message_patterns.db'
+    table: 'message_patterns'
 
 skills:
   accept_invite:

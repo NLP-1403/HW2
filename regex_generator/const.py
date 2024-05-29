@@ -3,12 +3,14 @@ import string
 DEBUG = False
 INDEX_TABLE = lambda x: chr(x)
 
-ESCAPE = '{([])^$.|*+?}\\'  # Inside () or Outside
+ESCAPE = '{([])^$.|*+?}\\' + '؟'  # Inside () or Outside
 INESCAPE = '^-'  # Inside []
-DIGIT = string.digits
+# DIGIT = string.digits
+DIGIT = string.digits + '٠١٢٣٤٥٦٧٨٩'
 UPPER = string.ascii_uppercase
 LOWER = string.ascii_lowercase
-LETTERS = string.ascii_letters
+# LETTERS = string.ascii_letters
+LETTERS = string.ascii_letters + 'ابتثجحخدذرزژسشصضطظعغفقكلمنهويءآأؤإئ'
 WORD = LETTERS + DIGIT + '_'
 LOWER_HEXDIGIT = DIGIT + LOWER[:6]
 UPPER_HEXDIGIT = DIGIT + UPPER[:6]

@@ -47,12 +47,12 @@ def check_custom_regex(message, custom_regex):
 
 
 # Example usage:
-add_regex('Email', r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
-add_regex('Iranian Phone Number', r'\+?98[0-9]{10}')
-add_regex('Address', r'\b(?:neighborhood|street|alley|plaque)\b')
+# add_regex('Email', r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
+# add_regex('Iranian Phone Number', r'\+?98[0-9]{10}')
+# add_regex('Address', r'\b(?:neighborhood|street|alley|plaque)\b')
 
-message = "Please contact me at john.doe@example.com or +989123456789. I live on 123 Elm Street."
-print("Matches found:", check_message_patterns(message))
-
-custom_regex = r'^[A-Za-z\s]+$'
-print("Matches custom regex:", check_custom_regex("Hello World", custom_regex))
+# message = "Please contact me at john.doe@example.com or +989123456789. I live on 123 Elm Street."
+# print("Matches found:", check_message_patterns(message))
+#
+# custom_regex = r'^[A-Za-z\s]+$'
+# print("Matches custom regex:", check_custom_regex("Hello World", custom_regex))
