@@ -14,8 +14,8 @@ connectors:
 
 databases:
   sqlite:
-    path: './new_regex/message_patterns.db'
-    table: 'message_patterns'
+    type: 'sqlite'
+    database: 'sqlite:///new_regex/message_patterns.db'
 
 skills:
   accept_invite:

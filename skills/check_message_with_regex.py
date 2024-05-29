@@ -26,5 +26,5 @@ class CheckMessageWithRegex(Skill):
         if match:
             await message.respond('مطابقت یافت شد.')
         else:
-            await message.respond(f'{message_text}, {regex}')
+            await message.respond(f'مطابقت یافت نشد.')
 
