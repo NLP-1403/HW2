@@ -7,17 +7,28 @@ connectors:
       'main': '#NLP-test:bot.parsi.ai'
 
     # Optional
-    homeserver: "https://bot.parsi.ai"
-    nick: "Great Bot"
-    device_id: "opsdroid"
+    homeserver: 'https://bot.parsi.ai'
+    nick: 'Great Bot'
+    device_id: 'opsdroid'
     enable_encryption: True
 
+#databases:
+#  sqlite:
+#    path: '/new_regex/message_patterns.db'
+#    table: 'message_patterns'
+
 skills:
-  test:
-    path: 'skills/test.py'
   accept_invite:
     path: 'skills/accept_invite.py'
   help:
     path: 'skills/help.py'
-  regex_generator1:
+  regex_generator:
     path: 'skills/regex_generator.py'
+  info:
+    path: 'skills/info.py'
+  add_regex:
+    path: 'skills/add_regex.py'
+  check_with_new_regexes:
+    path: 'skills/check_with_new_regexes.py'
+  check_message_with_regex:
+    path: 'skills/check_message_with_regex.py'

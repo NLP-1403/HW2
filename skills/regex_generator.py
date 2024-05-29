@@ -1,8 +1,8 @@
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
-import os
 import sys
 
+import os
 sys.path.append(os.getcwd())
 from regex_generator.generator import generator
 
@@ -16,7 +16,7 @@ class RegexGenerator(Skill):
 
         message_split = message.text.split('\n')[1:]
         if len(message_split) == 0:
-            await message.respond('لطفا ورودی را وارد کنید')
+            await message.respond('لطفاً ورودی را وارد کنید.')
             return
 
         result = []

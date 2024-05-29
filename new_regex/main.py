@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, declarative_base
 import re
 
-engine = create_engine('sqlite:///message_patterns.db')
+engine = create_engine('sqlite:///new_regex/message_patterns.db')
 Base = declarative_base()
 
 
@@ -24,6 +24,7 @@ def add_regex(name, regex):
         session.add(new_pattern)
         session.commit()
     except Exception as ignore:
+        print(ignore)
         pass
     finally:
         session.close()
