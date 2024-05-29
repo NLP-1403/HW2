@@ -24,5 +24,8 @@ class AddRegex(Skill):
         regex = message_split[1:]
         regex = '\n'.join(regex)
 
-        add_regex(name, regex)
-        await message.respond(f'رجکس {name} با موفقیت اضافه شد.')
+        status = add_regex(name, regex)
+        if not status:
+            await message.respond(f'رجکس {name} قبلاً اضافه شده است.')
+        else:
+            await message.respond(f'رجکس {name} با موفقیت اضافه شد.')

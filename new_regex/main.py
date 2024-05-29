@@ -19,15 +19,17 @@ Base.metadata.create_all(engine)
 def add_regex(name, regex):
     Session = sessionmaker(bind=engine)
     session = Session()
+    status = True
     try:
         new_pattern = MessagePattern(name=name, regex=regex)
         session.add(new_pattern)
         session.commit()
     except Exception as ignore:
-        print(ignore)
-        pass
+        if "UNIQUE constraint failed" in str(ignore):
+            status = False
     finally:
         session.close()
+    return status
 
 
 def check_message_patterns(message):
