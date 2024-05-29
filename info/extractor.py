@@ -1,7 +1,6 @@
 import re
 from .address import AddressExtractor
 from .number import getMobiles, getLandlineNumbers
-import json
 
 
 def EmailExtractor(text):
@@ -42,7 +41,7 @@ def Extractor(input_text, char_threshold=100):
         "نشانی‌ها": addressList,
         "طبقه‌بندی پیام": MessageClassifier(input_text, char_threshold)
     }
-    return json.dumps(output, ensure_ascii=False)
+    return output
 
 
 # تست کد

@@ -1,8 +1,9 @@
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
+import json
+
 import os
 import sys
-
 sys.path.append(os.getcwd())
 from info.extractor import Extractor
 
@@ -21,10 +22,10 @@ class Info(Skill):
         if len(message_split) == 0:
             await message.respond('لطفاً ورودی را وارد کنید.')
             return
-
-        if number is None:
-            await message.respond(Extractor(message_split))
-        elif number.isdigit():
-            await message.respond(Extractor(message_split, number))
-        else:
+        if number is not None and not number.isdigit():
             await message.respond('لطفاً یک عدد وارد کنید.')
+            return
+        else:
+            result = Extractor(message_split)
+            result = json.dumps(result, ensure_ascii=False, indent=4)
+            await message.respond(result)
