@@ -3,9 +3,11 @@ from .address import AddressExtractor
 from .number import getMobiles, getLandlineNumbers
 import json
 
+
 def EmailExtractor(text):
     email_regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
     return re.findall(email_regex, text)
+
 
 def MessageClassifier(texts, char_threshold):
     lens = [len(text) for text in texts]
@@ -14,16 +16,19 @@ def MessageClassifier(texts, char_threshold):
     else:
         return 'پیام بلند'
 
+
 def pretty(d, indent=0):
-   for key, value in d.items():
-      print('\t' * indent + str(key))
-      if isinstance(value, dict):
-         pretty(value, indent+1)
-      else:
-         print('\t' * (indent+1) + str(value))
+    for key, value in d.items():
+        print('\t' * indent + str(key))
+        if isinstance(value, dict):
+            pretty(value, indent + 1)
+        else:
+            print('\t' * (indent + 1) + str(value))
+
 
 def flatten_list(nested_list):
     return [item for sublist in nested_list for item in (sublist if isinstance(sublist, list) else [sublist])]
+
 
 def Extractor(input_text, char_threshold=100):
     landlineList = flatten_list([getLandlineNumbers(target) for target in input_text])
@@ -39,8 +44,9 @@ def Extractor(input_text, char_threshold=100):
     }
     return json.dumps(output, ensure_ascii=False)
 
+
 # تست کد
-#input_text = ("این یک پیام تست است که در آن ایمیل ما iliahashemirad@yahoo.co.uk و آدرس ما این است: محله ونک، خیابان میرزای شیرازی خیابان مطهری خیابان شهید صدوقی ک خورشید پلاک ۸ واحد 6 سپس بلوار الغدیر شمالی - میدان شهید صیاد شیرازی، کوچه بابایی، پ 5 است."
+# input_text = ("این یک پیام تست است که در آن ایمیل ما iliahashemirad@yahoo.co.uk و آدرس ما این است: محله ونک، خیابان میرزای شیرازی خیابان مطهری خیابان شهید صدوقی ک خورشید پلاک ۸ واحد 6 سپس بلوار الغدیر شمالی - میدان شهید صیاد شیرازی، کوچه بابایی، پ 5 است."
 #             "همجنین شماره تلفن بصورت +۹۸ (۹۱٤) ۸۰ ۸۰   ۸۸۸ میباشد."
 #              "jafang 0 21 666 23 5331 djj 6623 53(3) 12 jafang or 0 91 2 (123) 45-67 gjgj  +91228734793 ")
 
@@ -53,6 +59,7 @@ def get_multiline_input():
             break
         lines.append(line)
     return lines
+
 
 if __name__ == "__main__":
     CHAR_THRESHOLD = 100
@@ -69,5 +76,3 @@ if __name__ == "__main__":
     output = Extractor(target, CHAR_THRESHOLD)
 
     pretty(output)
-
-

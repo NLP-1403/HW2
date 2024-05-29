@@ -27,7 +27,8 @@ def AddressExtractor(text):
     words = text.split()
     for word in words:
         # Check if the word is an entity
-        matched_entity = next((base_entity for base_entity, variations in entity_mapping.items() if word in variations), None)
+        matched_entity = next((base_entity for base_entity, variations in entity_mapping.items() if word in variations),
+                              None)
         if matched_entity:
             # If we have captured a value for the current entity, save it
             if current_entity and current_value:
@@ -62,15 +63,18 @@ def AddressExtractor(text):
         final_address = {}
         for base_entity, values in address.items():
             if len(values) == 1:
-                final_value = re.sub(r"[^آ-یA-Za-z0-9 \u06F0-\u06F9 ]", "", values[0]).strip() # Remove non-letter and non-space characters and remove leading and trailing spaces
+                final_value = re.sub(r"[^آ-یA-Za-z0-9 \u06F0-\u06F9 ]", "", values[
+                    0]).strip()  # Remove non-letter and non-space characters and remove leading and trailing spaces
                 final_address[base_entity] = final_value
             else:
                 for i, value in enumerate(values, 1):
-                    final_value = re.sub(r"[^آ-یA-Za-z0-9 \u06F0-\u06F9 ]", "", value).strip()  # Remove non-letter and non-space characters and remove leading and trailing spaces
+                    final_value = re.sub(r"[^آ-یA-Za-z0-9 \u06F0-\u06F9 ]", "",
+                                         value).strip()  # Remove non-letter and non-space characters and remove leading and trailing spaces
                     final_address[f"{base_entity} {i}"] = final_value
         final_addresses.append(final_address)
 
     return final_addresses
+
 
 # Example input text
 input_text = "این یک پیام تست است که در آن آدرس ما این است: محله ونک، خیابان میرزای شیرازی خیابان مطهری خیابان شهید صدوقی ک خورشید پلاک ۸ واحد 6 سپس بلوار الغدیر شمالی - میدان شهید صیاد شیرازی، کوچه بابایی، پ 5 است."
@@ -79,5 +83,5 @@ input_text = "این یک پیام تست است که در آن آدرس ما ا
 extracted_addresses = AddressExtractor(input_text)
 
 # Print the extracted addresses
-#for address in extracted_addresses:
+# for address in extracted_addresses:
 #    print(address)
