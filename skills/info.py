@@ -27,5 +27,5 @@ class Info(Skill):
             return
         else:
             result = Extractor(message_split)
-            result = json.dumps(result, ensure_ascii=False, indent=4)
+            # result = json.dumps(result, ensure_ascii=False, indent=4)
             await message.respond(result)

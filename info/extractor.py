@@ -17,12 +17,20 @@ def MessageClassifier(texts, char_threshold):
 
 
 def pretty(d, indent=0):
+    pretty_output = ''
+
     for key, value in d.items():
-        print('\t' * indent + str(key))
+        pretty_output += '\t' * indent + str(key) + '\n'
+        # print('\t' * indent + str(key))
         if isinstance(value, dict):
-            pretty(value, indent + 1)
+            result = pretty(value, indent + 1)
+            if result is not None:
+                pretty_output += result
         else:
-            print('\t' * (indent + 1) + str(value))
+            pretty_output += '\t' * (indent + 1) + str(value) + '\n'
+            # print('\t' * (indent + 1) + str(value))
+
+    return pretty_output
 
 
 def flatten_list(nested_list):
@@ -41,7 +49,7 @@ def Extractor(input_text, char_threshold=100):
         "نشانی‌ها": addressList,
         "طبقه‌بندی پیام": MessageClassifier(input_text, char_threshold)
     }
-    return output
+    return pretty(output)
 
 
 # تست کد
