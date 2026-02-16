@@ -1,3 +1,35 @@
+"""
+Opsdroid Skill: Regex Generator Command
+
+This skill provides a chatbot command interface for the genetic algorithm-based
+regex pattern generator. Users can submit example strings and receive optimized
+regex patterns that match their examples.
+
+Command Usage:
+    /generate [POPULATION] [GENERATION]
+    <example1>
+    <example2>
+    ...
+
+Parameters:
+    POPULATION (optional): Number of patterns per generation (10-100, default: 100)
+    GENERATION (optional): Number of evolution cycles (1-30, default: 2)
+
+Example:
+    User message:
+        /generate 100 10
+        test@example.com
+        demo@test.org
+        
+    Bot response:
+        score: 0.95    [a-z]+@[a-z]+\.[a-z]{2,3}
+        score: 0.90    \w+@\w+\.\w+
+        score: 0.85    .+@.+\..+
+
+Author: NLP Course Spring 2024, Sharif University of Technology
+Reference: https://github.com/maojui/Regex-Generator
+"""
+
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
 import sys

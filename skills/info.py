@@ -1,3 +1,44 @@
+"""
+Opsdroid Skill: Information Extraction Command
+
+This skill provides a chatbot interface for extracting structured information
+from text messages, including emails, phone numbers, addresses, and message
+classification.
+
+Command Usage:
+    /info [THRESHOLD]
+    <text line 1>
+    <text line 2>
+    ...
+
+Parameters:
+    THRESHOLD (optional): Character count threshold for message classification
+                         (default: 100). Messages shorter than this are classified
+                         as "short", otherwise "long".
+
+Output Format:
+    تلفن (Phone Numbers):
+        ثابت (Landline): [list]
+        همراه (Mobile): [list]
+    ایمیل (Email): [list]
+    نشانی‌ها (Addresses): [list]
+    طبقه‌بندی پیام (Classification): short/long
+
+Example:
+    User message:
+        /info 50
+        Email: test@example.com
+        Phone: 09123456789
+        
+    Bot response:
+        تلفن
+            همراه: 09123456789
+        ایمیل: test@example.com
+        طبقه‌بندی پیام: پیام کوتاه
+
+Author: NLP Course Spring 2024, Sharif University of Technology
+"""
+
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
 import json

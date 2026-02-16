@@ -1,3 +1,23 @@
+"""
+Information Extraction Module
+
+This module provides comprehensive text extraction capabilities for identifying
+and extracting structured information from Persian and English text, including:
+- Email addresses
+- Mobile and landline phone numbers
+- Physical addresses
+- Message classification (short/long)
+
+The module supports Persian/Arabic numerals and integrates multiple specialized
+extractors for robust information retrieval.
+
+Example:
+    >>> from info.extractor import Extractor
+    >>> text = ["My email is test@example.com and phone is 09123456789"]
+    >>> results = Extractor(text, char_threshold=100)
+    >>> print(results)
+"""
+
 import re
 from .address import AddressExtractor
 from .number import getMobiles, getLandlineNumbers

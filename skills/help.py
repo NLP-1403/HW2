@@ -1,3 +1,32 @@
+"""
+Opsdroid Skill: Help Command
+
+This skill provides comprehensive documentation for all bot commands in both
+Persian and English languages. It serves as the primary user guide for
+interacting with the information extraction chatbot.
+
+Command Usage:
+    /help
+
+Output:
+    Displays detailed information about all available commands:
+    1. /help - Show this help documentation
+    2. /info - Extract structured information from text
+    3. /add - Store custom regex patterns
+    4. /checkall - Test against all stored patterns
+    5. /checkone - Test a custom regex pattern
+    6. /generate - Generate regex using genetic algorithm
+
+Features:
+    - Bilingual support (Persian and English)
+    - Detailed parameter descriptions
+    - Usage examples for each command
+    - Default values and constraints
+    - Welcome instructions for new users
+
+Author: NLP Course Spring 2024, Sharif University of Technology
+"""
+
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
 

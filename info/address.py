@@ -1,3 +1,33 @@
+"""
+Persian Address Extraction Module
+
+This module extracts Persian addresses from text using entity-based pattern
+matching. It recognizes address components such as streets, neighborhoods,
+cities, and building details through a comprehensive entity keyword system.
+
+The module uses a predefined list of address entities and their variations
+stored in AddressEntities.txt, which includes Persian address terminology
+such as:
+- خیابان (street), کوچه (alley), بلوار (boulevard)
+- محله (neighborhood), شهر (city), استان (province)
+- پلاک (plaque number), واحد (unit), طبقه (floor)
+
+Algorithm:
+    1. Load address entity keywords and their variations
+    2. Parse text word-by-word to identify entity matches
+    3. Group consecutive entity-value pairs into complete addresses
+    4. Handle entity limits (e.g., maximum values per entity type)
+
+Function:
+    AddressExtractor(text): Extracts list of structured address dictionaries
+
+Example:
+    >>> from info.address import AddressExtractor
+    >>> text = "آدرس: محله ونک، خیابان میرزای شیرازی، پلاک ۸"
+    >>> addresses = AddressExtractor(text)
+    >>> print(addresses)  # [{'محله': ['ونک'], 'خیابان': [...], 'پلاک': ['8']}]
+"""
+
 import re
 from collections import defaultdict
 import os
