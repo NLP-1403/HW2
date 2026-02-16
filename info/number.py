@@ -1,3 +1,27 @@
+"""
+Phone Number Extraction Module
+
+This module specializes in extracting Iranian mobile and landline phone numbers
+from text with support for:
+- Multiple phone number formats (with/without country code)
+- Persian and Arabic numeral systems (۰-۹, ٠-٩)
+- Iranian area codes for landline numbers
+- Flexible formatting (spaces, parentheses, hyphens)
+
+The module normalizes all extracted numbers to standard Iranian format (0XXXXXXXXXX).
+
+Functions:
+    num2en(string): Converts Persian/Arabic numerals to English
+    getMobiles(string): Extracts mobile phone numbers (09XXXXXXXXX format)
+    getLandlineNumbers(string): Extracts landline numbers with area codes
+
+Example:
+    >>> from info.number import getMobiles
+    >>> text = "تماس با ۰۹۱۲۳۴۵۶۷۸۹"
+    >>> mobiles = getMobiles(text)
+    >>> print(mobiles)  # ['09123456789']
+"""
+
 import re
 import os
 

@@ -1,3 +1,38 @@
+"""
+Opsdroid Skill: Add Custom Regex Pattern
+
+This skill allows users to store custom regex patterns in the database with
+unique names. These patterns can later be used to test messages for matches.
+
+Command Usage:
+    /add <pattern_name>
+    <regex_pattern>
+
+Parameters:
+    pattern_name: Unique identifier for the regex pattern
+    regex_pattern: Regular expression to store (can be multi-line)
+
+Features:
+    - Prevents duplicate pattern names
+    - Stores patterns persistently in SQLite database
+    - Patterns available for testing via /check_with_new_regexes command
+
+Example:
+    User message:
+        /add postal_code
+        \d{10}
+        
+    Bot response:
+        رجکس postal_code با موفقیت اضافه شد.
+        (Pattern 'postal_code' successfully added)
+
+Error Cases:
+    - Missing pattern name: "لطفاً نام را وارد کنید."
+    - Duplicate name: "رجکس {name} قبلاً اضافه شده است."
+
+Author: NLP Course Spring 2024, Sharif University of Technology
+"""
+
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
 

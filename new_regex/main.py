@@ -1,3 +1,28 @@
+"""
+Custom Regex Pattern Database Manager
+
+This module provides a SQLite-based system for storing and managing custom
+regular expression patterns. Users can define their own named patterns and
+test messages against them for flexible text matching capabilities.
+
+Database Schema:
+    Table: message_patterns
+    - id (Integer): Primary key
+    - name (String): Unique pattern identifier
+    - regex (String): Regular expression pattern
+
+Functions:
+    add_regex(name, regex): Store a new pattern (prevents duplicates)
+    check_message_patterns(message): Test message against all stored patterns
+    check_custom_regex(message, custom_regex): Validate a custom regex on text
+
+Example:
+    >>> from new_regex.main import add_regex, check_message_patterns
+    >>> add_regex("postal_code", r"\d{10}")
+    >>> matches = check_message_patterns("کد پستی: 1234567890")
+    >>> print(matches)  # {'postal_code': '1234567890'}
+"""
+
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, declarative_base
 import re
