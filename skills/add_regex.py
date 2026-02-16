@@ -15,7 +15,7 @@ Parameters:
 Features:
     - Prevents duplicate pattern names
     - Stores patterns persistently in SQLite database
-    - Patterns available for testing via /check_with_new_regexes command
+    - Patterns available for testing via /checkall command
 
 Example:
     User message:
