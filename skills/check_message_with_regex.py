@@ -1,3 +1,44 @@
+"""
+Opsdroid Skill: Check Custom Regex Pattern
+
+This skill validates a custom regex pattern against a message without storing
+the pattern in the database. Useful for one-time pattern testing.
+
+Command Usage:
+    /checkone
+    <text to test>
+    
+    <regex pattern>
+
+Note: Use double newline (blank line) to separate text from regex pattern.
+
+Features:
+    - Tests custom regex without database storage
+    - Boolean match result (found/not found)
+    - Instant validation for ad-hoc patterns
+
+Example:
+    User message:
+        /checkone
+        Test email: test@example.com
+        
+        \w+@\w+\.\w+
+        
+    Bot response (match found):
+        مطابقت یافت شد.
+        (Match found)
+        
+    Bot response (no match):
+        مطابقت یافت نشد.
+        (No match found)
+
+Related Commands:
+    - /add - Store pattern permanently
+    - /checkall - Test against all stored patterns
+
+Author: NLP Course Spring 2024, Sharif University of Technology
+"""
+
 from opsdroid.skill import Skill
 from opsdroid.matchers import match_regex
 

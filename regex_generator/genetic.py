@@ -1,3 +1,43 @@
+"""
+Genetic Algorithm Core Module
+
+This module implements the genetic algorithm engine for evolving regex patterns.
+It defines the genotype (gene types), fitness functions, and evolutionary
+operations for the regex generation system.
+
+Key Components:
+
+1. Genotype Dictionary (21 gene types):
+   Maps hex codes (0x00-0x14) to character matching functions:
+   - 0x00: \\d (digits)
+   - 0x01: [A-Z] (uppercase)
+   - 0x02: [a-z] (lowercase)
+   - 0x03: [A-Za-z] (letters)
+   - 0x04-0x05: Hexdigits
+   - 0x06: \\w (word characters)
+   - 0x07: \\s (whitespace)
+   - 0x08: [ ] (space only)
+   - 0x09: . (any character)
+   - 0x0a-0x14: Various character ranges and patterns
+
+2. Genetic Operations:
+   - substitute(): Matches characters to gene patterns
+   - substitute_col(): Column-wise pattern matching
+   - encoder(): Converts strings to gene sequences
+   - mutation(): Flips gene bits for variation
+   - nextGeneration(): Creates new population through evolution
+
+The genetic algorithm evolves patterns by:
+1. Encoding example strings as gene sequences
+2. Evaluating fitness (match quality)
+3. Selecting best performers
+4. Applying mutations for diversity
+5. Creating next generation population
+
+Author: NLP Course Spring 2024, Sharif University of Technology
+Based on: https://github.com/maojui/Regex-Generator
+"""
+
 import random
 
 from .const import *
