@@ -94,9 +94,9 @@ SQLite-based management of custom regex patterns:
 Opsdroid bot command handlers:
 - `/generate` - Generate regex from examples
 - `/info` - Extract contact information
-- `/add_regex` - Store custom pattern
-- `/check_with_new_regexes` - Test against stored patterns
-- `/check_message_with_regex` - Validate custom regex
+- `/add` - Store custom pattern
+- `/checkall` - Test against stored patterns
+- `/checkone` - Validate custom regex
 - `/help` - Display available commands
 
 ## 🛠️ Technologies
@@ -193,10 +193,10 @@ Once the bot is running, interact via Matrix chat:
 /info 50 My email is test@example.com
 → Extracts emails, phone numbers, addresses
 
-/add_regex postal_code \d{10}
+/add postal_code \d{10}
 → Stores custom regex pattern
 
-/check_with_new_regexes Test message 1234567890
+/checkall Test message 1234567890
 → Tests against all stored patterns
 
 /help
@@ -240,9 +240,9 @@ HW2/
 │   ├── help.py                # Help command
 │   ├── regex_generator.py     # /generate command
 │   ├── info.py                # /info command
-│   ├── add_regex.py           # /add_regex command
-│   ├── check_with_new_regexes.py  # Pattern matching
-│   └── check_message_with_regex.py  # Custom regex test
+│   ├── add_regex.py           # /add command
+│   ├── check_with_new_regexes.py  # /checkall command
+│   └── check_message_with_regex.py  # /checkone command
 │
 └── document/                   # LaTeX report
     ├── Report.tex             # Technical documentation
